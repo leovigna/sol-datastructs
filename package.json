@@ -6,7 +6,7 @@
         "type": "git",
         "url": "https://github.com/lionsmanedevelopment/sol-datastructs.git"
     },
-    "homepage": "https://lionsmane.github.io/sol-datastructs",
+    "homepage": "https://lionsmanedevelopment.github.io/sol-datastructs",
     "copyright": "Copyright 2020 Lionsmane Development",
     "license": "MIT",
     "scripts": {
