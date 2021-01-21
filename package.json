@@ -4,7 +4,7 @@
     "private": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/lionsmane/sol-datastructs.git"
+        "url": "https://github.com/lionsmanedevelopment/sol-datastructs.git"
     },
     "homepage": "https://lionsmane.github.io/sol-datastructs",
     "copyright": "Copyright 2020 Lionsmane Development",
