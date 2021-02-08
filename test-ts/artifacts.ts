@@ -10,6 +10,7 @@ import {
     TestArrayLibUInt128Contract,
     TestTreeLibContract,
     TestLogBaseNContract,
+    KeyStoreContract,
     IHeapUInt16Instance,
     IHeapUInt32Instance,
     IListUInt16Instance,
@@ -21,7 +22,8 @@ import {
     TestHeapLibUInt16B8Instance,
     TestHeapLibUInt32B16Instance,
     TestHeapLibUInt32B8Instance,
-    TestHeapLibUInt64B16Instance
+    TestHeapLibUInt64B16Instance,
+    KeyStoreInstance
 } from "../types/truffle-contracts"
 
 import TestLogBaseNArtifact from "../build/contracts/TestLogBaseN.json"
@@ -39,6 +41,8 @@ import TestHeapLibUInt32B8Artifact from "../build/contracts/TestHeapLibUInt32B8.
 import TestHeapLibUInt32B16Artifact from "../build/contracts/TestHeapLibUInt32B16.json"
 import TestHeapLibUInt64B16Artifact from "../build/contracts/TestHeapLibUInt64B16.json"
 
+import KeyStoreArtifact from "../build/contracts/KeyStore.json"
+
 const Contract = require('@truffle/contract');
 
 export const TestLogBaseN = Contract(TestLogBaseNArtifact) as TestLogBaseNContract
@@ -50,10 +54,10 @@ export const TestArrayLibUInt128 = Contract(TestArrayLibUInt128Artifact) as Test
 export type TestArrayLibUIntContract = TestArrayLibUInt16Contract | TestArrayLibUInt32Contract | TestArrayLibUInt64Contract | TestArrayLibUInt128Contract
 export type IListUIntInstance = IListUInt128Instance | IListUInt64Instance | IListUInt32Instance | IListUInt16Instance
 const TestArrayLibContracts = {
-    "TestArrayLibUInt16": TestArrayLibUInt16,
-    "TestArrayLibUInt32": TestArrayLibUInt32,
-    "TestArrayLibUInt64": TestArrayLibUInt64,
-    "TestArrayLibUInt128": TestArrayLibUInt128
+    TestArrayLibUInt16,
+    TestArrayLibUInt32,
+    TestArrayLibUInt64,
+    TestArrayLibUInt128
 }
 export type TestArrayLibUIntName = keyof (typeof TestArrayLibContracts)
 
@@ -68,21 +72,23 @@ export type TestHeapLibUIntContract = TestHeapLibUInt16B2Contract | TestHeapLibU
 export type TestHeapLibUIntInstance = TestHeapLibUInt16B2Instance | TestHeapLibUInt16B8Instance | TestHeapLibUInt32B8Instance | TestHeapLibUInt32B16Instance | TestHeapLibUInt64B16Instance
 export type IHeapUIntInstance = IHeapUInt16Instance | IHeapUInt32Instance | IHeapUInt64Instance
 const TestHeapLibUIntContracts = {
-    "TestHeapLibUInt16B2": TestHeapLibUInt16B2,
-    "TestHeapLibUInt16B8": TestHeapLibUInt16B8,
-    "TestHeapLibUInt32B8": TestHeapLibUInt32B8,
-    "TestHeapLibUInt32B16": TestHeapLibUInt32B16,
-    "TestHeapLibUInt64B16": TestHeapLibUInt64B16
+    TestHeapLibUInt16B2,
+    TestHeapLibUInt16B8,
+    TestHeapLibUInt32B8,
+    TestHeapLibUInt32B16,
+    TestHeapLibUInt64B16
 }
 export type TestHeapLibUIntName = keyof (typeof TestHeapLibUIntContracts)
 export type HeapLibUIntName = 'HeapLibUInt16' | 'HeapLibUInt32' | 'HeapLibUInt64'
 
+export const KeyStore = Contract(KeyStoreArtifact) as KeyStoreContract
 
 export const contracts = {
     ...TestArrayLibContracts,
     ...TestHeapLibUIntContracts,
-    "TestLogBaseNArtifact": TestLogBaseN,
-    "TestTreeLib": TestTreeLib
+    TestLogBaseN,
+    TestTreeLib,
+    KeyStore
 }
 export type ContractName = keyof typeof contracts;
 

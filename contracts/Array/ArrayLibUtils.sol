@@ -65,7 +65,7 @@ library ArrayLibUtils {
 
     /**
      * @dev Concatenate byte arrays
-     * @param arrayOfArrays of uint256
+     * @param arrayOfArrays of bytes
      * @return concatenated
      *
      * This function is especially useful when looking to concatenate a
@@ -88,5 +88,45 @@ library ArrayLibUtils {
         }
 
         return newArray;
+    }
+
+    /**
+     * @dev Concatenate byte arrays
+     * @param arrayOfArrays of uint256
+     * @return concatenated
+     */
+    function concat(uint256[][] memory arrayOfArrays) internal pure returns (uint256[] memory) {
+        uint256 arrayCount = arrayOfArrays.length;
+        uint256 totalLength = 0;
+        for (uint256 i = 0; i < arrayCount; i++) {
+            totalLength += arrayOfArrays[i].length;
+        }
+
+        uint256[] memory newArray = new uint256[](totalLength);
+        uint256 k = 0;
+        for (uint256 i = 0; i < arrayCount; i++) {
+            for (uint256 j = 0; j < arrayOfArrays[i].length; j++) {
+                newArray[k] = arrayOfArrays[i][j];
+                k++;
+            }
+        }
+
+        return newArray;
+    }
+
+    /**
+     * @dev Return range array
+     * @param from start index
+     * @param to end index, exclusive
+     * @return rangeArray
+     *
+     */
+    function range(uint256 from, uint256 to) internal pure returns (uint256[] memory rangeArray) {
+        require(from < to, 'from >= to');
+
+        rangeArray = new uint256[](to - from);
+        for (uint256 i = 0; i < rangeArray.length; i++) {
+            rangeArray[i] = from + i;
+        }
     }
 }
