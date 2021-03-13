@@ -1,27 +1,25 @@
 {
-    "name": "@lionsmanedevelopment/sol-datastructs",
-    "version": "0.1.0",
+    "name": "@lions-mane/sol-datastructs",
+    "version": "0.1.1",
     "private": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/lionsmanedevelopment/sol-datastructs.git"
+        "url": "https://github.com/lions-mane/sol-datastructs.git"
     },
-    "homepage": "https://lionsmanedevelopment.github.io/sol-datastructs",
+    "homepage": "https://lions-mane.github.io/sol-datastructs",
     "copyright": "Copyright 2020 Lionsmane Development",
     "license": "MIT",
     "scripts": {
-        "clean": "npm-run-all -p clean:build clean:migrations clean:test",
+        "clean": "npm-run-all -p clean:build clean:test",
         "clean:build": "rimraf ./build/",
-        "clean:migrations": "rimraf ./migrations/",
         "clean:test": "rimraf ./test/",
         "test": "cross-env NODE_OPTIONS=--max-old-space-size=4096 mocha",
         "start": "node dist/index.js",
         "build": "npm -s run clean && tsc",
-        "lint": "eslint test-ts/**/*.ts migrations-ts/**/*.ts",
-        "lint:fix": "eslint test-ts/**/*.ts migrations-ts/**/*.ts --fix",
-        "compile": "npm-run-all compile:truffle generate-types compile:migrations compile:test",
+        "lint": "eslint test-ts/**/*.ts",
+        "lint:fix": "eslint test-ts/**/*.ts --fix",
+        "compile": "npm-run-all compile:truffle generate-types compile:test",
         "compile:truffle": "npm run clean:build && truffle compile",
-        "compile:migrations": "npm run clean:migrations && tsc -p ./tsconfig.migrate.json --outDir ./migrations",
         "compile:test": "npm run clean:test && tsc -p ./tsconfig.test.json --outDir ./test",
         "pretest": "npm run compile",
         "prepublishOnly": "npm run test",
@@ -70,5 +68,11 @@
         "web3": "^1.3.1",
         "web3-core": "^1.3.1",
         "web3-eth-contract": "^1.3.1"
-    }
+    },
+    "files": [
+        "contracts/**/!(Test*)",
+        "build/contracts/**/!(Test*)",
+        "types/truffle-contracts/!(Test*)",
+        "types/web3-v1-contracts/!(Test*)"
+    ]
 }
