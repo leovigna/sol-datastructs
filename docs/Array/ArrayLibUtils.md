@@ -24,3 +24,11 @@ Sum the array elements
 ### `concat(bytes[] arrayOfArrays) → bytes` (internal)
 
 Concatenate byte arrays
+
+### `concat(uint256[][] arrayOfArrays) → uint256[]` (internal)
+
+Concatenate byte arrays
+
+### `range(uint256 from, uint256 to) → uint256[] rangeArray` (internal)
+
+Return range array
