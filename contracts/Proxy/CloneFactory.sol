@@ -1,4 +1,5 @@
-pragma solidity ^0.6.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.0;
 
 //from https://github.com/optionality/clone-factory/blob/master/contracts/CloneFactory.sol
 //explainer at https://blog.openzeppelin.com/deep-dive-into-the-minimal-proxy-contract/
